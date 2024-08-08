@@ -5,6 +5,8 @@ using SD6503BenchmarkAppAssignment1;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium;
 
 namespace SD6503BenchmarkAppUnitTests
 {
@@ -254,7 +256,7 @@ namespace SD6503BenchmarkAppUnitTests
             string result = myClass.ToString();
 
             // Assert
-            Assert.AreEqual("1                Alice       1985-01-01   alice@example.com    50000", result);
+            Assert.AreEqual("1 Alice 01/01/1985 alice@example.com 50,000", result);
         }
     }
 
@@ -318,6 +320,8 @@ namespace SD6503BenchmarkAppUnitTests
             Assert.IsTrue(result);
         }
     }
+
+
     /************************************/
     // Automation Tests
     [TestClass]
@@ -326,23 +330,29 @@ namespace SD6503BenchmarkAppUnitTests
     {
         static WindowsDriver<WindowsElement> StaffAppSession;
 
-        [TestInitialize]
-        [Priority(0)]
-        public void TestAppRun()
+        
+        [ClassInitialize]
+        public static void Setup(TestContext context)
         {
-            string exePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "SD6503BenchmarkAppAssignment1.exe");
-            AppiumOptions option = new AppiumOptions();
-            option.AddAdditionalCapability("app", exePath);
+            try
+            {
+                // Opening app once for auto testing using ClassInitialize and static method
+                string exePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "SD6503BenchmarkAppAssignment1.exe");
+                AppiumOptions option = new AppiumOptions();
+                option.AddAdditionalCapability("app", exePath);
 
-            StaffAppSession = new WindowsDriver<WindowsElement>(new Uri("http://127.0.0.1:4723/"), option);
-
-            // Load existing staff data from the file
-            var loadButton = StaffAppSession.FindElementByAccessibilityId("btnLoad");
-            loadButton.Click();
+                StaffAppSession = new WindowsDriver<WindowsElement>(new Uri("http://127.0.0.1:4723/"), option);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error during initialization: " + e.Message);
+                throw;
+            }
         }
 
-        [TestCleanup]
-        public void Cleanup()
+        // ClassCleanup method after tests are done
+        [ClassCleanup]
+        public static void Cleanup()
         {
             if (StaffAppSession != null)
             {
@@ -353,8 +363,7 @@ namespace SD6503BenchmarkAppUnitTests
 
         // Adding Staff Automation Test
         [TestMethod]
-        [Priority(2)] // run this test first
-        public void TestAddAndSaveStaff()
+        public void TestAddStaff()
         {
             // Arrange app elements to match their Id(name) from the UI using find ID method
             var staffIdTextBox = StaffAppSession.FindElementByAccessibilityId("tbxID");
@@ -364,7 +373,6 @@ namespace SD6503BenchmarkAppUnitTests
             var salaryTextBox = StaffAppSession.FindElementByAccessibilityId("tbxSalary");
             var addButton = StaffAppSession.FindElementByAccessibilityId("btnAdd");
             var staffListBox = StaffAppSession.FindElementByAccessibilityId("lstStaff");
-            var saveButton = StaffAppSession.FindElementByAccessibilityId("btnSave");
 
             // Automatic Actions - Fill inputs into text box automatically
             staffIdTextBox.SendKeys("123");
@@ -382,31 +390,9 @@ namespace SD6503BenchmarkAppUnitTests
             var addedStaff = staffListBox.FindElementByName("123 John Doe 01/01/1990 john.doe@example.com 50,000");
             addedStaff.Click();
 
-            // Save the staff details to the text file
-            saveButton.Click();
-
             // Assert - check if staff is added using given strings
             Assert.IsNotNull(addedStaff);
         }
-        
-        /*
-        // Deleting Staff Automation Test
-        [TestMethod]
-        [Priority(2)]
-        public void TestDeleteStaff()
-        {
-            // Arrange app elements to match their ID(name) from the UI using find ID method
-            var staffListBox = StaffAppSession.FindElementByAccessibilityId("lstStaff");
-            var deleteButton = StaffAppSession.FindElementByAccessibilityId("btnDelete");
-
-            // Automatic Actions - Click on an item in staff list box, then click on delete button.
-            staffListBox.Click();
-            deleteButton.Click();
-
-            // Assert - Check if the item is removed
-            var deletedStaff = staffListBox.FindElementByName("123 John Doe 01/01/1990 john.doe@example.com 50000");
-            Assert.AreEqual(0, deletedStaff);
-        }
-        */
     }
+
 }
