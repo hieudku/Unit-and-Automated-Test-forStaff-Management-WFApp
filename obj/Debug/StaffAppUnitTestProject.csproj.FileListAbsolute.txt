@@ -16,3 +16,16 @@ C:\Users\hieuc\source\repos\StaffAppUnitTestProject\obj\Debug\StaffAppUnitTestPr
 C:\Users\hieuc\source\repos\StaffAppUnitTestProject\obj\Debug\StaffAppUnitTestProject.csproj.CopyComplete
 C:\Users\hieuc\source\repos\StaffAppUnitTestProject\obj\Debug\StaffAppUnitTestProject.dll
 C:\Users\hieuc\source\repos\StaffAppUnitTestProject\obj\Debug\StaffAppUnitTestProject.pdb
+C:\Users\hieuc\source\repos\StaffAppUnitTestProject\bin\Debug\Appium.Net.dll
+C:\Users\hieuc\source\repos\StaffAppUnitTestProject\bin\Debug\Castle.Core.dll
+C:\Users\hieuc\source\repos\StaffAppUnitTestProject\bin\Debug\Newtonsoft.Json.dll
+C:\Users\hieuc\source\repos\StaffAppUnitTestProject\bin\Debug\SeleniumExtras.PageObjects.dll
+C:\Users\hieuc\source\repos\StaffAppUnitTestProject\bin\Debug\WebDriver.dll
+C:\Users\hieuc\source\repos\StaffAppUnitTestProject\bin\Debug\WebDriver.Support.dll
+C:\Users\hieuc\source\repos\StaffAppUnitTestProject\bin\Debug\Appium.Net.xml
+C:\Users\hieuc\source\repos\StaffAppUnitTestProject\bin\Debug\Castle.Core.xml
+C:\Users\hieuc\source\repos\StaffAppUnitTestProject\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\hieuc\source\repos\StaffAppUnitTestProject\bin\Debug\Newtonsoft.Json.xml
+C:\Users\hieuc\source\repos\StaffAppUnitTestProject\bin\Debug\WebDriver.xml
+C:\Users\hieuc\source\repos\StaffAppUnitTestProject\bin\Debug\WebDriver.Support.xml
+C:\Users\hieuc\source\repos\StaffAppUnitTestProject\bin\Debug\StaffData.txt

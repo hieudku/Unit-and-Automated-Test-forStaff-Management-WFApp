@@ -1,10 +1,14 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OpenQA.Selenium.Appium.Windows;
+using OpenQA.Selenium.Appium;
 using SD6503BenchmarkAppAssignment1;
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace SD6503BenchmarkAppUnitTests
 {
+    // Unit Tests
     [TestClass]
     public class DataValidationTests
     // Testing Data Validation for ID, Name, Salary
@@ -313,5 +317,96 @@ namespace SD6503BenchmarkAppUnitTests
             // Assert
             Assert.IsTrue(result);
         }
+    }
+    /************************************/
+    // Automation Tests
+    [TestClass]
+
+    public class AutoTest
+    {
+        static WindowsDriver<WindowsElement> StaffAppSession;
+
+        [TestInitialize]
+        [Priority(0)]
+        public void TestAppRun()
+        {
+            string exePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "SD6503BenchmarkAppAssignment1.exe");
+            AppiumOptions option = new AppiumOptions();
+            option.AddAdditionalCapability("app", exePath);
+
+            StaffAppSession = new WindowsDriver<WindowsElement>(new Uri("http://127.0.0.1:4723/"), option);
+
+            // Load existing staff data from the file
+            var loadButton = StaffAppSession.FindElementByAccessibilityId("btnLoad");
+            loadButton.Click();
+        }
+
+        [TestCleanup]
+        public void Cleanup()
+        {
+            if (StaffAppSession != null)
+            {
+                StaffAppSession.Quit();
+                StaffAppSession = null;
+            }
+        }
+
+        // Adding Staff Automation Test
+        [TestMethod]
+        [Priority(2)] // run this test first
+        public void TestAddAndSaveStaff()
+        {
+            // Arrange app elements to match their Id(name) from the UI using find ID method
+            var staffIdTextBox = StaffAppSession.FindElementByAccessibilityId("tbxID");
+            var nameTextBox = StaffAppSession.FindElementByAccessibilityId("tbxName");
+            var dobDatePicker = StaffAppSession.FindElementByAccessibilityId("dateSelect");
+            var emailTextBox = StaffAppSession.FindElementByAccessibilityId("tbxEmail");
+            var salaryTextBox = StaffAppSession.FindElementByAccessibilityId("tbxSalary");
+            var addButton = StaffAppSession.FindElementByAccessibilityId("btnAdd");
+            var staffListBox = StaffAppSession.FindElementByAccessibilityId("lstStaff");
+            var saveButton = StaffAppSession.FindElementByAccessibilityId("btnSave");
+
+            // Automatic Actions - Fill inputs into text box automatically
+            staffIdTextBox.SendKeys("123");
+            nameTextBox.SendKeys("John Doe");
+            dobDatePicker.SendKeys("01/01/1990");
+            emailTextBox.SendKeys("john.doe@example.com");
+            salaryTextBox.SendKeys("50000");
+            staffListBox.Click();
+            addButton.Click();
+
+            // Wait for the staff to be added and appear in the list box
+            System.Threading.Thread.Sleep(1000);
+
+            // Assert - check if staff is added using given strings
+            var addedStaff = staffListBox.FindElementByName("123 John Doe 01/01/1990 john.doe@example.com 50,000");
+            addedStaff.Click();
+
+            // Save the staff details to the text file
+            saveButton.Click();
+
+            // Assert - check if staff is added using given strings
+            Assert.IsNotNull(addedStaff);
+        }
+        
+        /*
+        // Deleting Staff Automation Test
+        [TestMethod]
+        [Priority(2)]
+        public void TestDeleteStaff()
+        {
+            // Arrange app elements to match their ID(name) from the UI using find ID method
+            var staffListBox = StaffAppSession.FindElementByAccessibilityId("lstStaff");
+            var deleteButton = StaffAppSession.FindElementByAccessibilityId("btnDelete");
+
+            // Automatic Actions - Click on an item in staff list box, then click on delete button.
+            staffListBox.Click();
+            deleteButton.Click();
+
+            // Assert - Check if the item is removed
+            var deletedStaff = staffListBox.FindElementByName("123 John Doe 01/01/1990 john.doe@example.com 50000");
+            Assert.AreEqual(0, deletedStaff);
+        }
+        */
     }
 }
