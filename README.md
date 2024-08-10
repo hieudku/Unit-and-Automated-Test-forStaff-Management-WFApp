@@ -433,7 +433,7 @@ Return a string in the format: ID Name DOB Email Salary	<br />
 Passed<br />
 
 <br />
-### Filter Class<br />
+### Filter Class
 
 <br />
 SortAZ Method	<br />
@@ -472,16 +472,16 @@ Return true if the staff members are appended successfully	<br />
 Passed<br />
 <br />
 <br />
-## 4. Automation Testing<br />
+## 4. Automation Testing
 Automating the testing of staff management functionalities ensures the application remains reliable and robust. Tools like Windows Application Driver and Appium streamline this process, focusing on adding staff members through automation.<br />
 
-### Setting Up the Test Environment<br />
+### Setting Up the Test Environment
 The test environment setup includes installing Windows Application Driver, Appium, and Visual Studio. These tools are essential for simulating user interactions with the application. The setup involves starting the WinAppDriver server and configuring Appium to ensure readiness for the tests.<br />
 
-### Test Initialization and Execution<br />
+### Test Initialization and Execution
 The ClassInitialize method launches the application using Appium, pointing to the executable path. This step ensures that all tests run under consistent conditions. The core of the testing involves adding a staff member by automating data entry into fields such as staff ID, name, date of birth, email, and salary. Verification is done to check if the new staff member appears correctly in the staff list.<br />
 
-### Observing and Reporting Results<br />
+### Observing and Reporting Results
 Post-execution involves observing and interpreting the test results. The system logs detailed outcomes, noting the success of adding a staff member. 
 <br />
 <br />
