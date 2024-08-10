@@ -1,5 +1,5 @@
 # Test Plan
-###Test Plan Identifier
+### Test Plan Identifier
 According to the IEEE 829 Standard, Test Plan Identifier uniquely identifies the test plan (Reqtest, 2016).
 For this project, the test plan is for the staff management application on Windows. => https://github.com/hieudku/SD6503BenchmarkAppAssignment1.git
 <br />
@@ -10,11 +10,11 @@ The goal is to validate each function's accuracy and reliability through systema
 A detailed report will be generated for each test case, documenting the test results and comparing them with the expected outcomes. Any defects identified during testing will be logged and communicated to the development team for resolution. After defects are fixed, the affected functionalities will be re-tested to confirm that the issues have been resolved.
 <br />
 ### Table headers
-Test Items
-Epic
-User Story ID
-Feature
-User Story
+- Test Items
+- Epic
+- User Story ID
+- Feature
+- User Story
 Staff Management
 <br />
 <br />
@@ -69,10 +69,10 @@ As a user, I want the application to validate my inputs to ensure that only corr
 <br />
 <br />
 
-### Features to be tested<br />
+Features to be tested<br />
 The Test Plan identifies and implements an approach to testing the following features of the Staff Management App: Staff Addition, Staff Editing, Staff Deletion, Staff Sorting, Staff Searching, Staff Saving, Data Saving, Data Loading, Data Appending, Data Deletion from File, Input Validation.
 
-### Item Pass/Fail Criteria
+Item Pass/Fail Criteria
 ### Table headers
 Test Item ID<br />
 Test Condition<br />
