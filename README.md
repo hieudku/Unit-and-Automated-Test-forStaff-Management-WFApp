@@ -9,13 +9,7 @@ The testing scope includes all critical functions of the application, including 
 The goal is to validate each function's accuracy and reliability through systematic test cases. These test cases will simulate user actions such as adding new staff, editing details, deleting records, and searching for specific staff members. Each function will undergo multiple test runs to ensure consistency and correctness.
 A detailed report will be generated for each test case, documenting the test results and comparing them with the expected outcomes. Any defects identified during testing will be logged and communicated to the development team for resolution. After defects are fixed, the affected functionalities will be re-tested to confirm that the issues have been resolved.
 <br />
-### Table headers
-- Test Items
-- Epic
-- User Story ID
-- Feature
-- User Story
-Staff Management
+### User Story - Staff Management Application
 <br />
 <br />
 US1.1<br />
