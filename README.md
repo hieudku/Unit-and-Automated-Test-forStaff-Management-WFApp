@@ -63,15 +63,15 @@ As a user, I want the application to validate my inputs to ensure that only corr
 <br />
 <br />
 
-Features to be tested<br />
+### Features to be tested<br />
 The Test Plan identifies and implements an approach to testing the following features of the Staff Management App: Staff Addition, Staff Editing, Staff Deletion, Staff Sorting, Staff Searching, Staff Saving, Data Saving, Data Loading, Data Appending, Data Deletion from File, Input Validation.
 
-Item Pass/Fail Criteria
-### Table headers
-Test Item ID<br />
-Test Condition<br />
-Pass Criteria<br />
-Fail Criteria<br />
+### Item Pass/Fail Criteria
+Table headers<br />
+-Test Item ID<br />
+-Test Condition<br />
+-Pass Criteria<br />
+-Fail Criteria<br />
 <br />
 T1<br />
 Functionality of Staff Addition feature<br />
