@@ -1,15 +1,15 @@
-##Test Plan
+# Test Plan
 ###Test Plan Identifier
 According to the IEEE 829 Standard, Test Plan Identifier uniquely identifies the test plan (Reqtest, 2016).
 For this project, the test plan is for the staff management application on Windows. => https://github.com/hieudku/SD6503BenchmarkAppAssignment1.git
 <br />
-###Introduction
+### Introduction
 This document outlines the test plan for the staff management application, which is developed to manage staff data through various functionalities such as adding, editing, deleting, and sorting staff information. The test plan follows the IEEE 829 standard, ensuring a comprehensive and structured approach to testing.
 The testing scope includes all critical functions of the application, including staff data input validation, saving and loading data from files, and sorting and searching staff records. The testing activities will cover the functionality of the MyClass, FileManager, and Filter classes, as well as the user interface interactions provided by the main form.
 The goal is to validate each function's accuracy and reliability through systematic test cases. These test cases will simulate user actions such as adding new staff, editing details, deleting records, and searching for specific staff members. Each function will undergo multiple test runs to ensure consistency and correctness.
 A detailed report will be generated for each test case, documenting the test results and comparing them with the expected outcomes. Any defects identified during testing will be logged and communicated to the development team for resolution. After defects are fixed, the affected functionalities will be re-tested to confirm that the issues have been resolved.
 <br />
-###Table headers
+### Table headers
 Test Items
 Epic
 User Story ID
@@ -17,19 +17,20 @@ Feature
 User Story
 Staff Management
 <br />
-US1.1
-Staff Addition
+<br />
+US1.1<br />
+Staff Addition<br />
 As a user, I want to be able to add new staff members to the system so that their information can be stored.
 <br />
-
-US1.2
-Staff Editing
-As a user, I want to be able to edit existing staff member details to keep their information up-to-date.
 <br />
-
-US1.3
-Staff Deletion
-As a user, I want to be able to delete staff members from the system when they are no longer part of the team.
+US1.2<br />
+Staff Editing<br />
+As a user, I want to be able to edit existing staff member details to keep their information up-to-date.<br />
+<br />
+<br />
+US1.3<br />
+Staff Deletion<br />
+As a user, I want to be able to delete staff members from the system when they are no longer part of the team.<br />
 <br />
 
 US1.4
@@ -70,8 +71,8 @@ As a user, I want the application to validate my inputs to ensure that only corr
 Features to be tested
 The Test Plan identifies and implements an approach to testing the following features of the Staff Management App: Staff Addition, Staff Editing, Staff Deletion, Staff Sorting, Staff Searching, Staff Saving, Data Saving, Data Loading, Data Appending, Data Deletion from File, Input Validation.
 
-###Item Pass/Fail Criteria
-###Table headers
+### Item Pass/Fail Criteria
+### Table headers
 Test Item ID
 Test Condition
 Pass Criteria
@@ -152,7 +153,7 @@ Functionality of Input Validation feature
 <br />
 <br />
 
-###Entry Criteria
+### Entry Criteria
 Functional Completeness: All key features (addition, editing, deletion, sorting, searching, saving, loading, appending, and validation) must be implemented.
 Environment Setup: Application, dependencies, and test data must be properly configured and accessible.
 Test Cases: Test cases must be created, reviewed, and approved.
@@ -218,10 +219,11 @@ Project Description, Test Plan, Test Case
 <br />
 <br />
 
-##Test Design
-1. Black-box Testing
+# Test Design
+## 1. Black-box Testing
 Black-box testing focuses on verifying the functional requirements of the application without knowledge of the internal code structure. For this application, the test cases will involve user interactions with the UI components.
-
+<br />
+### Table headers
 Test Case & Name
 Description
 Expected Result
@@ -295,10 +297,10 @@ Staff data should remain unchanged after closing and reopening the application
 Passed
 <br />
 <br />
-###2. White-box Testing<br />
+## 2. White-box Testing<br />
 White-box testing focuses on the internal workings of the application, including code structure, logic, and data flow. Below are the Test Classes and Test Methods with their outcomes and description for Unit Testing.
 
-###Table headers<br />
+### Table headers<br />
 Test Class	
 Test Method	
 Test Case	
@@ -439,11 +441,11 @@ Return true indicating successful append.
 Passed
 <br />
 
-###3. Grey-box Testing<br />
+## 3. Grey-box Testing<br />
 Grey-box testing combines black-box and white-box testing by focusing on both functional requirements and internal code. 
 <br />
 MyClass Class
-###Table headers
+### Table headers
 Test Case
 Description
 Expected Result
@@ -485,7 +487,7 @@ Passed
 <br />
 
 FileManager Class
-###Table headers
+### Table headers
 Test Case
 Description
 Expected Result
@@ -507,7 +509,7 @@ Return true if the staff members are appended successfully
 Passed
 <br />
 
-##4. Automation Testing
+## 4. Automation Testing
 Automating the testing of staff management functionalities ensures the application remains reliable and robust. Tools like Windows Application Driver and Appium streamline this process, focusing on adding staff members through automation.
 
 Setting Up the Test Environment
@@ -521,15 +523,15 @@ Post-execution involves observing and interpreting the test results. The system 
 <br />
 <br />
 
-#Test Summary Report
+# Test Summary Report
 No deviations from the Test Specification and Test Approach mentioned. All Test Cases meet the exit criteria after their executions. Refer to the tables in Test Execution.
 Below is the summary of results for the test cases performed for the six Tests Condition mentioned under the respective Test Environment.
-
+<br />
 
 ![image](https://github.com/user-attachments/assets/d0d9ee24-0b79-4020-8b89-cc81c834e040)
-
+<br />
 
 Pass percentage for all Test Cases including functional test, White-box tests, Black-box tests, UI test, unit tests and automation tests is 100%
-
+<br />
 However, due to an unsolved/unknown issue with WinAppDriver's interaction with File IO functions such as Load, Save and Delete, these tests were removed from the automation testing. 
 Instead, these functions were tested manually and proven to be working from the Black-box UI tests, therefore it was not an issue with the Application, but rather caused by WinAppDriver.
